@@ -8,32 +8,38 @@
     <title>Calculator</title>
   </head>
   <body>
-    <section class="content">
-      <div class="calculator">
-        <div class="screen">
-          <p id="calc-screen"></p>
+    <div class="calculator">
+      <div class="screen">
+        <p id="calc-screen">0</p>
+      </div>
+      <div class="keyboard">
+        <div class="keyboard-left">
+          <button class="btn" id="Clear">Clear</button>
+          <div class="numbers-container">
+            <button class="btn" id="7">7</button>
+            <button class="btn" id="8">8</button>
+            <button class="btn" id="9">9</button>
+            <button class="btn" id="4">4</button>
+            <button class="btn" id="5">5</button>
+            <button class="btn" id="6">6</button>
+            <button class="btn" id="1">1</button>
+            <button class="btn" id="2">2</button>
+            <button class="btn" id="3">3</button>
+          </div>
+          <div class="zero-dot-equal">
+            <button class="btn" id="0">0</button>
+            <button class="btn" id=".">.</button>
+            <button class="btn" id="operate">=</button>
+          </div>
         </div>
-        <div class="keyboard">
-          <button id="Clear">Clear</button>
-          <button class="btn" id="back-space">"<-"</button>
-          <button class="btn" id="7">7</button>
-          <button class="btn" id="8">8</button>
-          <button class="btn" id="9">9</button>
-          <button class="btn" id="divide">/</button>
-          <button class="btn" id="4">4</button>
-          <button class="btn" id="5">5</button>
-          <button class="btn" id="6">6</button>
+        <div class="operators-container">
+          <button class="btn" id="back-space"><-</button>
+          <button class="btn" id="divide">%</button>
           <button class="btn" id="multiply">*</button>
-          <button class="btn" id="1">1</button>
-          <button class="btn" id="2">2</button>
-          <button class="btn" id="3">3</button>
           <button class="btn" id="subtract">-</button>
-          <button class="btn" id="0">0</button>
-          <button class="btn" id=".">.</button>
-          <button class="btn" id="operate">=</button>
           <button class="btn" id="add">+</button>
         </div>
       </div>
-    </section>
+    </div>
   </body>
 </html>
