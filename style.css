@@ -35,6 +35,18 @@ body {
   margin: var(--margin);
   border: var(--border);
   border-radius: var(--border-radius);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+  background-color: var(--dark-blue);
+  color: white;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: scale(0.97);
+  background-color: rgb(30, 94, 190); /* slightly darker shade for feedback */
 }
 
 #clear {
