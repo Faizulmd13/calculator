@@ -73,7 +73,6 @@ function fnEvaluator(input) {
       }
       operator = operand2 = undefined;
       break;
-
     case "<-":
       backspace();
       break;
