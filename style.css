@@ -1,0 +1,60 @@
+:root {
+  --border: 2px solid white;
+  --padding: 20px;
+  --margin: 5px;
+  --border-radius: 5px;
+
+  --light-pink: rgba(182, 232, 255, 0.3);
+  --pink: rgb(255 223 239);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: x-large;
+}
+
+.content {
+  display: flex;
+}
+
+.calculator {
+  background-color: var(--light-pink);
+}
+
+.btn {
+  padding: var(--padding);
+  margin: var(--margin);
+  border: var(--border);
+  border-radius: var(--border-radius);
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.keyboard-left {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+}
+
+.zero-dot-equal {
+  width: max-content;
+}
+
+.number-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.operators-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.numbers-and-operators {
+  display: flex;
+}
