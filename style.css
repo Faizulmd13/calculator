@@ -4,8 +4,9 @@
   --margin: 5px;
   --border-radius: 5px;
 
-  --light-blue: rgba(182, 232, 255, 0.3);
-  --blue: rgb(223, 236, 255);
+  --light-blue: rgba(59, 130, 246, 0.15);
+  --blue: rgb(147, 186, 248);
+  --dark-blue: rgb(59, 130, 246);
 }
 
 * {
