@@ -1,5 +1,6 @@
 let input;
 let operand1, operand2, operator;
+let result;
 let btns;
 let screen = document.querySelector("#calc-screen");
 
@@ -13,19 +14,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function equate(operandA, operandB, operator) {
-  switch (operator) {
+function equate(operandA, operandB, sign) {
+  switch (sign) {
     case "+":
-      return +operandA + +operandB;
+      result = +operandA + +operandB;
+      break;
     case "-":
-      return operandA - operandB;
+      result = operandA - operandB;
+      break;
     case "*":
-      return operandA * operandB;
+      result = operandA * operandB;
+      break;
     case "/":
-      return operandA / operandB;
+      result = operandA / operandB;
+      break;
     default:
       return 0;
   }
+  return result;
 }
 
 function fnEvaluator(input) {
@@ -40,6 +46,7 @@ function fnEvaluator(input) {
     case "8":
     case "9":
     case "0":
+    case ".":
       addToScreen(input);
       break;
     case "+":
@@ -54,14 +61,18 @@ function fnEvaluator(input) {
       break;
     case "=":
       defineOperandB();
-      console.log(equate(operand1, operand2, operator));
-      screen.textContent = equate(operand1, operand2, operator);
+      screen.textContent = operand1 = equate(operand1, operand2, operator);
+      operator = operand2 = undefined;
     default:
       return 0;
   }
 }
 
 function addToScreen(text) {
+  if (result !== undefined) {
+    screen.textContent = "";
+    result = undefined;
+  }
   if (operator === undefined) {
     if (screen.textContent === "0") {
       screen.textContent = text;
