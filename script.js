@@ -53,7 +53,6 @@ function fnEvaluator(input) {
     case "-":
     case "*":
     case "/":
-      defineOperandA();
       defineOperator(input);
       break;
     case "clear":
@@ -63,6 +62,7 @@ function fnEvaluator(input) {
       defineOperandB();
       screen.textContent = operand1 = equate(operand1, operand2, operator);
       operator = operand2 = undefined;
+      break;
     default:
       return 0;
   }
@@ -102,5 +102,13 @@ function defineOperandB() {
 }
 
 function defineOperator(currentOperator) {
+  if (operand1 === undefined) {
+    defineOperandA();
+  } else if (operator !== undefined && operand1 !== screen.textContent) {
+    defineOperandB();
+    operand1 = equate(operand1, operand2, operator);
+    screen.textContent = operand1;
+    operand2 = undefined;
+  }
   operator = currentOperator;
 }
