@@ -26,7 +26,7 @@ function equate(operandA, operandB, sign) {
       result = operandA * operandB;
       break;
     case "/":
-      result = operandA / operandB;
+      result = +operandB === 0 ? "Can't divide by 0" : operandA / operandB;
       break;
     default:
       return 0;
@@ -59,9 +59,23 @@ function fnEvaluator(input) {
       clearScreen();
       break;
     case "=":
+      if (operand1 === undefined || operator === undefined) return;
       defineOperandB();
-      screen.textContent = operand1 = equate(operand1, operand2, operator);
+      if (operand2 === undefined || operand2 === "") return;
+
+      const resultValue = equate(operand1, operand2, operator);
+      screen.textContent = resultValue;
+
+      if (typeof resultValue === "number") {
+        operand1 = result = resultValue;
+      } else {
+        operand1 = result = undefined;
+      }
       operator = operand2 = undefined;
+      break;
+
+    case "<-":
+      backspace();
       break;
     default:
       return 0;
@@ -69,6 +83,8 @@ function fnEvaluator(input) {
 }
 
 function addToScreen(text) {
+  if (text === "." && screen.textContent.includes(".")) return;
+
   if (result !== undefined) {
     screen.textContent = "";
     result = undefined;
@@ -111,4 +127,14 @@ function defineOperator(currentOperator) {
     operand2 = undefined;
   }
   operator = currentOperator;
+}
+
+function backspace() {
+  if (result !== undefined) {
+    operand1 = operand2 = result = undefined;
+  }
+
+  let current = screen.textContent;
+  current = current.slice(0, -1);
+  screen.textContent = current === "" ? "0" : current;
 }
